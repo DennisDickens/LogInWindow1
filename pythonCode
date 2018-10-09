@@ -1,0 +1,42 @@
+import tkinter
+
+
+from tkinter import *
+
+def log_in():
+    if username.get() == default_usr:
+        if password.get() == default_pass:
+            messagebox.showinfo(title = "Log in", message = "Log in was Successful")
+            username.delete(0, END)
+        else:
+            label5 = Label(app, text = "Password is wrong, try again", width = 30)
+            label5.pack()
+    else:
+        messagebox.showinfo(title = "Log in", message = "Incorrect, try again")
+        username.delete(0, END)
+        
+    
+    password.delete(0, END)
+
+app = Tk()
+app.title("Log in")
+app.geometry('450x300+200+200')
+app.configure(bg = 'blue')
+
+label2 = Label(app, text = "Username", width = 30)
+label2.pack(padx = 10, pady = 5)
+username = Entry(app)
+username.pack()
+
+
+label3 = Label(app, text = "Password", width = 30)
+label3.pack(padx = 10, pady = 5)
+password = Entry(app)
+password.pack()
+
+
+button1 = Button(app, text = "OK", width = 10, command = log_in)
+button1.pack(padx = 10, pady = 10)
+
+default_usr = 'Nuel'
+default_pass = 'nuelamin'
